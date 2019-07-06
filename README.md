@@ -1,6 +1,25 @@
+# Employee
+Backend service for Employee Application.
+
+### Dev Setup
+`cd into project root directory`<br>
+
+`cd employee`<br>
+
+`./mvnw package`<br>
+
+`java -jar target/employee-0.0.1-SNAPSHOT.jar`<br>
+
+
+# Employee-App 
+UI Application for employee management
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+`cd employee-app`<br>
+
+`npm install`<br>
 
 In the project directory, you can run:
 
