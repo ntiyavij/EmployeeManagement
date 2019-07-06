@@ -2,11 +2,10 @@
 Backend service for Employee Application.
 
 ### Dev Setup
-`cd into project root directory`<br>
 
 `cd employee`<br>
 
-`./mvnw package`<br>
+`mvnw package`<br>
 
 `java -jar target/employee-0.0.1-SNAPSHOT.jar`<br>
 
