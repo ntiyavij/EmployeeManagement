@@ -66,13 +66,23 @@ class EmployeeList extends Component {
     }
     onSelectionChanged = () => {
         var selectedRows = this.gridApi.getSelectedRows();
-        this.props.history.push(`/employee/${selectedRows[0].id}?sortBy=${this.state.sortBy}`);
+        if(this.state.sortBy){        	
+        	this.props.history.push(`/employee/${selectedRows[0].id}?sortBy=${this.state.sortBy}`);
+        }else{
+        	this.props.history.push(`/employee/${selectedRows[0].id}`);
+        }
     }
 
     fetchEmployeeData(sortBy) {
+    	if(sortBy){
         fetch(`http://localhost:8080/api/employee?sortBy=${sortBy}`)
             .then(result => result.json())
             .then(rowData => this.setState({ rowData }));
+    	}else{
+    		 fetch(`http://localhost:8080/api/employee`)
+             .then(result => result.json())
+             .then(rowData => this.setState({ rowData }));
+    	}
     }
 
     componentDidMount() {
@@ -80,6 +90,8 @@ class EmployeeList extends Component {
        if(sortBy){
         this.setState({ sortBy})
         this.fetchEmployeeData(sortBy);
+       }else{
+    	   this.fetchEmployeeData();
        }
 
 
@@ -98,7 +110,7 @@ class EmployeeList extends Component {
                         {columnDefs.map((col,index) => { return (<option key = {index} value={col.field}>{col.headerName}</option>) })}
                     </Form.Control>
                 </Form.Group>
-                { sortBy &&
+                { rowData &&
                 <>
                 <h3>Employee Data</h3>
                 <div style={{ height: '19rem', width: '100%' }} className="ag-theme-balham">

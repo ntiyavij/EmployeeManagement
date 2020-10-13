@@ -18,7 +18,10 @@ class EmployeeDetail extends Component {
     }
 
     handleClick = (sortBy)=>{
+    	if(sortBy)
         this.props.history.push(`/employee?sortBy=${sortBy}`);
+    	else
+    		this.props.history.push(`/employee`);
     }
 
     state = {
