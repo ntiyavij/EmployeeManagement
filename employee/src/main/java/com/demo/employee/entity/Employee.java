@@ -1,6 +1,5 @@
-package com.rbs.employee.entity;
+package com.demo.employee.entity;
 
-import com.rbs.employee.common.enums.Gender;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -9,6 +8,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.demo.employee.common.enums.Gender;
+
 import java.util.Date;
 
 @Entity
